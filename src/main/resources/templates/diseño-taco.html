@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/l999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>TACO-FUN</title>
+<link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+
+	<h1>DISEÑE SU TACO - ARTISTA</h1>
+
+	<img th:src="@{/img/taco-fun.png}" />
+
+	<form method="POST" th:object="${atrDesign}">
+		<div class="grid">
+			<div class="ingredient-group" id="wraps">
+				<h3>DESIGNE SU ENVOLTORIO:</h3>
+				<div th:each="ingrediente : ${masa}">
+					<input name="ingredientes" type="checkbox"
+						th:value="${ingrediente.id}" /> <span th:text="${ingrediente.nombre}">INGREDIENT</span><br />
+				</div>
+			</div>
+
+			<div class="ingredient-group" id="proteins">
+				<h3>ELIGE TU PROTEINA:</h3>
+				<div th:each="ingrediente : ${proteina}">
+					<input name="ingredientes" type="checkbox"
+						th:value="${ingrediente.id}" /> <span th:text="${ingrediente.nombre}">INGREDIENT</span><br />
+				</div>
+			</div>
+
+			<div class="ingredient-group" id="cheeses">
+				<h3>ELIJA SU QUESO:</h3>
+				<div th:each="ingrediente : ${queso}">
+
+					<input name="ingredientes" type="checkbox"
+						th:value="${ingrediente.id}" /> <span th:text="${ingrediente.nombre}">INGREDIENT</span><br />
+				</div>
+			</div>
+
+			<div class="ingredient-group" id="veggies">
+				<h3>DETERMINA TUS VEGETALES:</h3>
+				<div th:each="ingrediente : ${vegetales}">
+					<input name="ingredientes" type="checkbox"
+						th:value="${ingrediente.id}" /> <span th:text="${ingrediente.nombre}">INGREDIENT</span><br />
+				</div>
+			</div>
+
+			<div class="ingredient-group" id="sauces">
+				<h3>SELECCIONE SU SALSA:</h3>
+				<div th:each="ingrediente : ${salsa}">
+					<input name="ingredientes" type="checkbox"
+						th:value="${ingrediente.id}" /> <span th:text="${ingrediente.nombre}">INGREDIENT</span><br />
+				</div>
+			</div>
+		</div>
+
+		<div>
+
+
+			<h3>Ponle nombre a tu creación de TACO:</h3>
+			<input type="text" th:field="*{nombre}" /> <br />
+
+			<button>Submit your taco</button>
+		</div>
+	</form>
+</body>
+</html>
